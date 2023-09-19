@@ -1,17 +1,7 @@
 /* Reset some default styles */
-html {
-    width: 100%;
-    height: 100%;
+html, body {
     margin: 0;
     padding: 0;
-
-}
-body, h1, h2, p, ul, li, button {
-    margin: 0;
-    padding: 0;
-}
-
-body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
@@ -20,27 +10,15 @@ body {
 }
 
 header {
-    background-color: #007bff;
+    background-color: #333;
     color: #fff;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
 }
+
 .page-title {
-    margin-bottom: 60px; /* Adjust the margin as needed */
+    margin-bottom: 20px;
 }
-/* Add the center-content class */
-.center-content {
-    text-align: center; /* Center-align text */
-    margin: 0 auto; /* Center horizontally */
-    max-width: 400px; /* Adjust the max-width as needed */
-    padding: 20px; /* enter content vertically in the viewport */
- }
-; /* 
- /* Add the center-image class */
- .center-image {
-    margin-top: 20px; /* Add some space above the image */
- }
- 
 
 nav ul {
     list-style: none;
@@ -52,149 +30,166 @@ nav ul li {
 }
 
 main {
-    
-    min-height: 100vh;
-    margin: 0;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+.center-content {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.center-image {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.home h2 {
+    font-size: 2rem;
+}
+
+.home p {
+    font-size: 1.2rem;
+}
+
+.contact-us ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.contact-us li {
+    font-size: 1.2rem;
+}
+
+/* ... Add more custom styles for your products, cart, and checkout sections ... */
+
+.selected-tab {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+    transform: translate(0, -5px);
+    padding: 10px 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+/* Reset some default styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.page-title {
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* ... (Your existing styles) ... */
+
+/* ... (Your existing styles) ... */
+/* ... (Your existing styles) ... */
 
 .products {
     flex: 2;
     margin-right: 20px;
+    overflow: hidden; /* Hide any overflow beyond the container */
 }
 
-.product {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    text-align: center;
-}
-.cart-item-count {
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 50%;
-    padding: 4px 8px;
-    font-size: 12px;
-    margin-left: 5px; /* Adjust the spacing as needed */
-  }
-
-
-.product img {
-    max-width: 100%;
-    height: auto;
+.product-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping to the next line */
+    gap: 20px; /* Adjust the gap between products */
+    padding: 10px;
+    overflow: auto; /* Enable horizontal scrolling */
+    max-height: calc(4 * (200px + 20px)); /* Maximum height for four rows */
 }
 
-.product h2 {
-    font-size: 1.2rem;
-    margin-top: 10px;
-}
-
-.product p {
-    margin-top: 10px;
-}
-
-.product button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.product button:hover {
-    background-color: #0056b3;
-}
-
-.purchase-message {
-    margin-bottom: 20px; /* You can adjust the value as needed */
-}
-.cart {
-    flex: 1;
-}
-
-.cart h2 {
-    font-size: 1.2rem;
-}
-
-.cart ul {
+.product-list {
     list-style: none;
     padding: 0;
-}
-
-.cart li {
-    border-bottom: 1px solid #ddd;
-    padding: 10px 0;
+    margin: 0;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: nowrap; /* Prevent wrapping to the next line */
+    gap: 20px; /* Adjust the gap between products */
 }
 
-.cart button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.cart button:hover {
-    background-color: #0056b3;
-}
-/* Style for the payment form container */
-.payment-form {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f4f4f4;
+.product-item {
+    flex: 0 0 calc(25% - 20px); /* Four items per row with gap in between */
+    background-color: #fff;
     border: 1px solid #ddd;
+    padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box; /* Include padding and border in the width */
 }
 
-/* Style for form groups */
-.form-group {
-    margin-bottom: 20px;
-}
-
-/* Style for labels */
-.form-group label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-}
-
-/* Style for input fields */
-.form-group input[type="text"] {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-/* Style for the combined expiry date and CVV fields */
-.expiry-cvv {
+.product-details {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Style for the individual expiry date and CVV fields */
-.expiry, .cvv {
-    flex: 1;
+.product-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
 }
 
-/* Style for the submit button */
-.pay-button {
+.product-title {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.product-description {
+    margin-top: 10px;
+}
+
+.product-price {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.add-to-cart-button {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -202,23 +197,58 @@ main {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 
-.pay-button:hover {
+.add-to-cart-button:hover {
     background-color: #0056b3;
 }
 
-.selected-tab {
-    background-color: black;  /*Change to your desired color */
-    color:white; /* Text color for the selected tab */
-    border-radius: 20px; /* Increased border radius for a more rounded appearance */
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Increased box shadow for a 3D effect */
-  transition: all 0.2s ease-in-out; /* Smooth transition */
-  transform: translate(0, -5px); /* Initial position, slightly above */
-  padding: 10px 20px; /* Increas*/
+
+
+.center-content {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
 }
-footer {
+
+.center-image {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.home h2 {
+    font-size: 2rem;
+}
+
+.home p {
+    font-size: 1.2rem;
+}
+
+.contact-us ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.contact-us li {
+    font-size: 1.2rem;
+}
+
+/* ... Add more custom styles for your products, cart, and checkout sections ... */
+
+.selected-tab {
     background-color: #007bff;
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+    transform: translate(0, -5px);
+    padding: 10px 20px;
+}
+
+footer {
+    background-color: #333;
     color: #fff;
     text-align: center;
     padding: 10px;

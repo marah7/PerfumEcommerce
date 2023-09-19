@@ -3,6 +3,7 @@ export interface Product {
     name: string;
     description: string;
     price: number;
-    imageUrl?: string; // Optional property for the product image URL
+    imageUrl?: string;
+    category: 'Men' | 'Women'; // Optional property for the product image URL
   }
   

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title >E-commerce Store</title>
+    <title>E-commerce Store</title>
 </head>
 <body>
     <header>
@@ -11,12 +11,11 @@
         <nav>
             <ul>
                 <li><a [class.selected-tab]="selectedTab === 'home'" (click)="selectedTab = 'home'">Home</a></li>
-                <li><a  [class.selected-tab]="selectedTab === 'products'" (click)="selectedTab = 'products'">Products</a></li>
+                <li><a [class.selected-tab]="selectedTab === 'products'" (click)="selectedTab = 'products'">Products</a></li>
                 <li><a [class.selected-tab]="selectedTab === 'cart'" (click)="selectedTab = 'cart'">Cart</a>
                     <span class="cart-item-count">{{ cartItemCount }}</span> <!-- Display the cart item count -->
                 </li>
                 <li><a [class.selected-tab]="selectedTab === 'checkout'" (click)="selectedTab = 'checkout'">Checkout</a>
-                  
                 </li>
             </ul>
         </nav>
@@ -52,24 +51,44 @@
             </section>
         </ng-container>
         
-        <ng-container *ngIf="selectedTab === 'products'">
-            <section class="products">
-                <!-- Products content goes here -->
-                <div *ngIf="products">
-                    <div class="center-content">
-                    <ul>
-                        <li *ngFor="let product of products">
-                            <h2>{{ product.name }}</h2>
-                            <p>{{ product.description }}</p>
-                            <p>Price: ${{ product.price }}</p>
-                            <img [src]="'assets/' + product.imageUrl" alt="{{ product.name }}" width="200">
-                            <button (click)="addToCart(product)">Add to Cart</button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            </section>
-        </ng-container>
+        <!-- ... (Your existing code) ... -->
+
+<ng-container *ngIf="selectedTab === 'products'">
+    <section class="products">
+        <!-- Search box -->
+        <div class="sort-options">
+            <label>Sort By:</label>
+            <button (click)="toggleSortOrder()">Price: {{ sortOrder === 'asc' ? 'Low to High' : 'High to Low' }}</button>
+        </div>
+        <input type="text" [(ngModel)]="searchTerm" placeholder="Search products" (input)="updateFilteredProducts()">
+        <!-- Category selection -->
+        <div class="category-selection">
+            <label>Category:</label>
+            <select [(ngModel)]="activeCategory" (change)="updateFilteredProducts()">
+                <option value="All">All</option>
+                <option value="Men">Men</option>
+                <option value="Women">Women</option>
+            </select>
+        </div>
+        <!-- Products content goes here -->
+        <div class="product-container">
+            <ul class="product-list">
+                <li *ngFor="let product of filteredProducts" class="product-item">
+                    <div class="product-details">
+                        <img [src]="'assets/' + product.imageUrl" alt="{{ product.name }}" class="product-image">
+                        <h2 class="product-title">{{ product.name }}</h2>
+                        <p class="product-description">{{ product.description }}</p>
+                        <p class="product-price">$ {{ product.price }}</p>
+                        <button class="add-to-cart-button" (click)="addToCart(product)">Add to Cart</button>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+</ng-container>
+
+<!-- ... (Your existing code) ... -->
+
         
         <ng-container *ngIf="selectedTab === 'cart'">
             <section class="cart">
@@ -77,48 +96,47 @@
                 <h2>Shopping Cart</h2>
                 <ul>
                     <li *ngFor="let cartItem of cartItems">
-                      {{ cartItem.name }} -  Price: ${{ cartItem.price }}
-                      <button (click)="removeFromCart(cartItem)">Remove</button>
+                        {{ cartItem.name }} -  Price: ${{ cartItem.price }}
+                        <button (click)="removeFromCart(cartItem)">Remove</button>
                     </li>
-                  </ul>
-                  <p class="purchase-message">Total: ${{ calculateTotal() }}</p>
-                  <button (click)="reviewCheckout()">Review & Checkout</button>
+                </ul>
+                <p class="purchase-message">Total: ${{ calculateTotal() }}</p>
+                <button (click)="reviewCheckout()">Review & Checkout</button>
             </section>
         </ng-container>
-        <ng-container *ngIf="selectedTab === 'checkout' and isReviewingCheckout">
+        
+        <ng-container *ngIf="selectedTab === 'checkout' && isReviewingCheckout">
             <section class="checkout">
                 <!-- Checkout content goes here -->
                 <h2>Checkout</h2>
                 <p class="purchase-message">Complete your purchase.</p>
                  <!-- Checkout Form -->
-    <!-- Checkout Form -->
-<form (submit)="processPayment()" class="payment-form">
-    <!-- Payment details input fields -->
-    <div class="form-group">
-        <label for="name">Name on Card</label>
-        <input type="text" id="name" name="name" required>
-    </div>
-    <div class="form-group">
-        <label for="cardNumber">Card Number</label>
-        <input type="text" id="cardNumber" name="cardNumber" required>
-    </div>
-    <div class="form-group expiry-cvv">
-        <div class="expiry">
-            <label for="expiryDate">Expiry Date</label>
-            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
-        </div>
-        <div class="cvv">
-            <label for="cvv">CVV</label>
-            <input type="text" id="cvv" name="cvv" required>
-        </div>
-    </div>
+                <form (submit)="processPayment()" class="payment-form">
+                    <!-- Payment details input fields -->
+                    <div class="form-group">
+                        <label for="name">Name on Card</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" name="cardNumber" required>
+                    </div>
+                    <div class="form-group expiry-cvv">
+                        <div class="expiry">
+                            <label for="expiryDate">Expiry Date</label>
+                            <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+                        </div>
+                        <div class="cvv">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv" required>
+                        </div>
+                    </div>
     
-    <!-- Submit button -->
-    <button type="submit" class="pay-button">Confirm Payment</button>
-</form>
-
-  </section>
-</ng-container>
+                    <!-- Submit button -->
+                    <button type="submit" class="pay-button">Confirm Payment</button>
+                </form>
+            </section>
+        </ng-container>
     </main>
     
     <footer>

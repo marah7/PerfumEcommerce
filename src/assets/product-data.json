@@ -2,24 +2,69 @@
     "products": [
       {
         "id": 1,
-        "name": "Product 1",
+        "name": "VALNTINUO 1",
         "description": "Description for Product 1",
         "price": 19.99,
-        "imageUrl": "Product 1.jpg"
+        "imageUrl": "Product 1.jpg",
+        "category":"Men"
+
       },
       {
         "id": 2,
-        "name": "Product 2",
+        "name": "LUIS 2",
         "description": "Description for Product 2",
         "price": 24.99,
-        "imageUrl": "Product 2.jpg"
+        "imageUrl": "Product 2.jpg",
+        "category":"Men"
       },
       {
         "id": 3,
-        "name": "Product 3",
+        "name": "SI 3",
         "description": "Description for Product 3",
         "price": 29.99,
-        "imageUrl": "Product 3.jpg"
+        "imageUrl": "Product 3.jpg",
+        "category":"Men"
+      }
+      ,
+      {
+        "id": 1,
+        "name": "cucci 1",
+        "description": "Description for Product 1",
+        "price": 19.99,
+        "imageUrl": "Product 1.jpg",
+        "category":"Women"
+      },
+      {
+        "id": 1,
+        "name": "pradaa 1",
+        "description": "Description for Product 1",
+        "price": 19.99,
+        "imageUrl": "Product 1.jpg",
+        "category":"Women"
+      },
+      {
+        "id": 1,
+        "name": "pradaa 1",
+        "description": "Description for Product 1",
+        "price": 19.99,
+        "imageUrl": "Product 1.jpg",
+        "category":"Women"
+      },
+      {
+        "id": 1,
+        "name": "pradaa 1",
+        "description": "Description for Product 1",
+        "price": 19.99,
+        "imageUrl": "Product 1.jpg",
+        "category":"Women"
+      },
+      {
+        "id": 1,
+        "name": "pradaa 1",
+        "description": "Description for Product 1",
+        "price": 19.99,
+        "imageUrl": "Product 1.jpg",
+        "category":"Women"
       }
     ]
   }
